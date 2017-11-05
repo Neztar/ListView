@@ -40,7 +40,9 @@ public class AnimalListAdapter extends ArrayAdapter<Animal>{
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View v = inflater.inflate(layoutResId,null);
+        //View v = inflater.inflate(layoutResId,null);
+        View v = convertView;
+        if(v==null){v=inflater.inflate(layoutResId,null);}
         ImageView iv = (ImageView) v.findViewById(R.id.imageView);
         TextView tv = (TextView) v.findViewById(R.id.textView);
         Animal animal = animalList.get(position);

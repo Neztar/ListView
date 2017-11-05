@@ -12,7 +12,7 @@ public class AnimalData {
 
     private static AnimalData sInstance;
 
-    public ArrayList<Animal> animallist;
+    public static ArrayList<Animal> animallist = new ArrayList<>();
 
     public static AnimalData getsInstance(){
         if(sInstance==null){sInstance=new AnimalData();}
