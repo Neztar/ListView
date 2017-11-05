@@ -2,6 +2,7 @@ package a07580542.listview.Adapter;
 
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,9 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 import a07580542.listview.Model.Animal;
 import a07580542.listview.R;
@@ -46,7 +45,11 @@ public class AnimalListAdapter extends ArrayAdapter<Animal>{
         ImageView iv = (ImageView) v.findViewById(R.id.imageView);
         TextView tv = (TextView) v.findViewById(R.id.textView);
         Animal animal = animalList.get(position);
-        iv.setImageResource(animal.picture);
+
+        Drawable drawable = animal.getPictureDrawable(context);
+        iv.setImageDrawable(drawable);
+
+//        iv.setImageResource(animal.picture);
         tv.setText(animal.name);
         return v;
     }
